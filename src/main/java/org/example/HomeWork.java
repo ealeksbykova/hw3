@@ -36,19 +36,28 @@ public class HomeWork {
     private ArrayList<String> getSubstrings(String str) {
         ArrayList<String> subStrings = new ArrayList<>();
 
-        for (int i = 0; i < str.length(); i++) {
+        for (int i = 0; i < str.length(); ++i) {
+            String item = getUniqueSubstr(str.substring(i, str.length() - 1));
+            if (item != null) {
+                subStrings.add(item);
+            }
+        }
+
+        for (int i = 0; i < str.length(); ++i) {
             String item = getUniqueSubstr(str.substring(0, str.length() - i - 1));
             if (item != null) {
                 subStrings.add(item);
             }
         }
 
-        for (int i = 0; i < str.length(); i++) {
+        for (int i = 0; i < str.length(); ++i) {
             String item = getUniqueSubstr(str.substring(i));
             if (item != null) {
                 subStrings.add(item);
             }
         }
+
+        int maxLength = getLongestStringLength(subStrings);
 
         return subStrings;
     }
@@ -87,6 +96,16 @@ public class HomeWork {
         }
 
         return null;
+    }
+
+    private int getLongestStringLength(ArrayList<String> strings) {
+        TreeSet<Integer> sizes = new TreeSet<>();
+
+        for (String s : strings) {
+            sizes.add(s.length());
+        }
+
+        return sizes.last();
     }
 
 

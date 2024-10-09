@@ -19,7 +19,7 @@ class BinaryIntSearchTreeTest {
     @ParameterizedTest(name = "Успешный поиск подстроки в строке: {arguments}")
     @CsvSource({
         "abcd, abcddcba",
-        "dcbaX, abcddcbaX",
+        "dcbaX, abcddcbaXX",
         "I love, I love Java",
         "0987654321, 00090003330344453212345678900000987654321"
     })
